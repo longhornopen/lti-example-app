@@ -17,13 +17,13 @@ class LtiController extends Controller
     }
 
     // This handles the LTI launch; it'll be called by the LMS when the user clicks on the link to
-    // your tool.  Several database IDs will be available from the LtiTool object once handleRequest()
+    // your tool.  Several database IDs will be available from the LtiTool object once processRequest()
     // is called.  You should store these in a session or in your app's database, so that you can
     // use them later.
     public function ltiMessage(Request $request)
     {
         $tool = LtiTool::getLtiTool();
-        $tool->handleRequest();
+        $tool->processRequest();
 
         /*
         At this point:
